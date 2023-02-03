@@ -32,6 +32,10 @@ const SideBar = ({ show, handleClose }) => {
         dispatch(getCartThunk())
     }
 
+    const sumBuy =() => {
+        dispatch( UpdateCartThunk ( id, update ))
+    }
+
 
 
 

@@ -30,6 +30,14 @@ export const delPurchasesThunk = (id) => dispatch => {
         .finally(() => dispatch( setIsLoading( false )))
 }
 
+export const UpdateCartThunk = ( id, update ) => dispatch => {
+    dispatch( setIsLoading(true) )
+    axios.put(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${id}`, update, getConfig())
+        .then( res => dispatch( getCartThunk()))
+        .catch( error => alert('hubo un error'))
+        .finally(() => dispatch( setIsLoading( false )))
+}
+
 export const { setCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
