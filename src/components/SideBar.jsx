@@ -11,23 +11,29 @@ import getConfig from '../utils/getConfig';
 const SideBar = ({ show, handleClose }) => {
 
     const cart = useSelector(state => state.cart);
-
+    const [ total, setTotal ] = useState(0);
+    const [ quantity, setQuantity ] = useState( 0 );
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getCartThunk())
+        dispatch(getCartThunk());
+        cart.map( e => (
+            setTotal( total + (e.quantity * e.product.price ))
+        ))
     }, [])
 
     const buyProducts = () => {
         dispatch( purchasesCartThunk() );
-        dispatch(getCartThunk())
+        dispatch( getCartThunk() )
     }
 
     const delProducts = (id) => {
-        alert( id )
         dispatch(delPurchasesThunk(id))
         dispatch(getCartThunk())
     }
+
+
+
 
 
 
@@ -42,6 +48,7 @@ const SideBar = ({ show, handleClose }) => {
                         {
                             cart.map(e => (
                                 <li key={e.id} className='li-cart'>
+
                                     <figure className='figure-cart'>
                                         <img src={e.product.images[0].url} alt="" />
                                     </figure>
@@ -49,11 +56,16 @@ const SideBar = ({ show, handleClose }) => {
                                     <div className='info-cart'>
                                         <div className='title-cart'>
                                             <span>{e.product.title}</span>
-                                            <i className='bx bx-trash' onClick={() => delProducts( e.product.id )}></i>
+                                            <i className='bx bx-trash' onClick={() => delProducts( e.id )}></i>
                                         </div>
                                         <div className='buttons-cart'>
                                             <button>-</button>
-                                            <span>{e.quantity}</span>
+                                            <span> {e.quantity} </span>
+                                            {/* <input 
+                                                type="text"
+                                                value={ e.quantity }
+                                                onChange={ e => setQuantity( e.target.value ) }
+                                            /> */}
                                             <button>+</button>
                                         </div>
                                     </div>
@@ -61,7 +73,7 @@ const SideBar = ({ show, handleClose }) => {
                             ))
                         }
                         <hr />
-                        <span> Total: $ { 500}</span>
+                        <span> Total: $ { total }</span>
                         <button onClick={buyProducts}>CheckOut</button>
                     </ul>
                 </Offcanvas.Body>

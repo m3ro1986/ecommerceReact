@@ -33,7 +33,7 @@ const Product = () => {
                 "productId": product.id
             };
             dispatch( addPurchasesThunk( purchase ));
-            // dispatch(getCartThunk())
+            dispatch(getCartThunk())
         } else {
             alert('incorrect quantity')
         }
