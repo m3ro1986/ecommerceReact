@@ -1,0 +1,28 @@
+.purchases-figure{
+    width: 3rem;
+    height: 3rem;
+}
+
+.purchases-figure img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.purchasesli-box {
+    list-style: none;
+    display: flex;
+}
+
+.purchasesli-box a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.info-purchase {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}

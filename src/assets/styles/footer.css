@@ -1,0 +1,19 @@
+.footer-box {
+    /* position: sticky;
+    bottom: 0; */
+    height: 7rem;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+.footer-icons .bx {
+    font-size: 2rem;
+}
+
+.footer-icons {
+    display: flex;
+    gap: 2rem;
+}

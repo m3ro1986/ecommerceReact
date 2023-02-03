@@ -1,0 +1,92 @@
+.navbar-main {
+    position: sticky;
+    top: 0;
+}
+
+.title-box{
+    display: flex;
+    justify-content: center;
+}
+
+.title-box a{
+    text-decoration: none;
+    color: beige;
+}
+
+.title-box:hover{
+    color: gray;
+    cursor: pointer;
+}
+
+.search-box {
+    display: flex;
+    justify-content: end;
+    width: 100%;   
+}
+
+.search-box input{
+    border: none;
+    outline: none;
+    text-align: center;
+    border-radius: 1rem 0 0 1rem;
+    width: 95%;
+    max-width: 25rem;
+    height: 1.5rem
+}
+
+.search-box button{
+    border-radius: 0 1rem 1rem 0;
+    background-color: black;
+    color: white;
+    border: none;
+}
+
+.dropdown-box {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.dropdown-box h4 {
+    font-size: 1rem;
+    margin: 0 1rem;
+}
+
+.dropdown-box h4:hover{
+    cursor: pointer;
+    background-color: rgb(189, 189, 189);
+}   
+
+.navbar-all {
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.navbar-all a{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: gray;
+    padding: 0.5rem;
+}
+
+.navbar-all a:hover{
+    color: white;
+}
+
+@media screen and ( max-width: 991px ) {
+    .navbar-all {
+        justify-content: left;
+    }
+}
+
+.bx {
+    font-size: 1.5rem;
+}
+
+
+.nav-icons {
+    display: flex;
+    gap:2rem;
+}
