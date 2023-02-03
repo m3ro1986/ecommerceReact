@@ -32,8 +32,20 @@ const SideBar = ({ show, handleClose }) => {
         dispatch(getCartThunk())
     }
 
-    const sumBuy =() => {
-        dispatch( UpdateCartThunk ( id, update ))
+    const decrement = (product) => {
+        const data = {
+            'quantity': product.quantity - 1
+        };
+        axios.put(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${product.id}`, data, getConfig())
+            .then( res => dispatch(getCartThunk()))
+    }
+
+    const increment = (product) => {
+        const data = {
+            'quantity': product.quantity + 1
+        };
+        axios.put(`https://e-commerce-api-v2.academlo.tech/api/v1/cart/${product.id}`, data, getConfig())
+            .then( res => dispatch(getCartThunk()))
     }
 
 
@@ -63,14 +75,14 @@ const SideBar = ({ show, handleClose }) => {
                                             <i className='bx bx-trash' onClick={() => delProducts( e.id )}></i>
                                         </div>
                                         <div className='buttons-cart'>
-                                            <button>-</button>
+                                            <button onClick={ () => decrement( e )}>-</button>
                                             <span> {e.quantity} </span>
                                             {/* <input 
                                                 type="text"
                                                 value={ e.quantity }
                                                 onChange={ e => setQuantity( e.target.value ) }
                                             /> */}
-                                            <button>+</button>
+                                            <button onClick={ () => increment( e )}>+</button>
                                         </div>
                                     </div>
                                 </li>
